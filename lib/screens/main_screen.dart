@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/resources/color_manager.dart';
 import 'package:news_app/resources/icon_manager.dart';
+import 'package:news_app/resources/string_manager.dart';
 import 'package:news_app/resources/values_manager.dart';
 
 import 'bookmark/bookmark_screen.dart';
-import 'home/home_screen.dart';
+import 'news/news_screen.dart';
 import 'search/search_screen.dart';
 import 'settings/settings_screen.dart';
 
@@ -20,19 +21,19 @@ class _MainScreenState extends State<MainScreen> {
 
   final List<Map<String, dynamic>> _pages = [
     {
-      'title': 'News',
-      'page': HomeScreen(),
+      'title': AppString.news,
+      'page': NewsScreen(),
     },
     {
-      'title': 'Search',
+      'title': AppString.search,
       'page': SearchScreen(),
     },
     {
-      'title': 'Bookmark',
+      'title': AppString.bookmark,
       'page': BookMarkScreen(),
     },
     {
-      'title': 'Settings',
+      'title': AppString.settings,
       'page': SettingsScreen(),
     },
   ];
@@ -49,7 +50,9 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        // identify the height of the appbar
         toolbarHeight: AppSize.s80,
+        // remove the leading back icon
         automaticallyImplyLeading: false,
         title: Text(_pages[_selectedIndex]['title']),
       ),

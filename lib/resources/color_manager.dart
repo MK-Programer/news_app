@@ -6,6 +6,6 @@ class ColorManager {
 
   static Color white = Colors.white;
   static Color black = Colors.black;
-  static Color orange = Colors.orange;
+  static Color orange = Colors.orange.shade700;
   static Color grey = Colors.grey;
 }

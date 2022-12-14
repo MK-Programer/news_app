@@ -19,10 +19,9 @@ class ThemeManager {
       cardColor: ColorManager.cardColor,
       textTheme: TextTheme(
         titleMedium: TextStyle(
-          overflow: TextOverflow.ellipsis,
-          color: ColorManager.black,
+          color: ColorManager.white,
           fontWeight: FontWeightManager.semiBold,
-          fontSize: FontSize.s18,
+          fontSize: FontSize.s22,
         ),
         labelSmall: TextStyle(
           color: ColorManager.white,
@@ -32,12 +31,12 @@ class ThemeManager {
         headlineSmall: TextStyle(
           color: ColorManager.black,
           fontWeight: FontWeightManager.bold,
-          fontSize: FontSize.s16,
+          fontSize: FontSize.s20,
         ),
         headlineMedium: TextStyle(
           color: ColorManager.black,
           fontWeight: FontWeightManager.semiBold,
-          fontSize: FontSize.s18,
+          fontSize: FontSize.s24,
         ),
         bodySmall: TextStyle(
           color: ColorManager.black,
