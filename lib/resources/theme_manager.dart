@@ -22,6 +22,7 @@ class ThemeManager {
           color: ColorManager.white,
           fontWeight: FontWeightManager.semiBold,
           fontSize: FontSize.s22,
+          overflow: TextOverflow.ellipsis,
         ),
         labelSmall: TextStyle(
           color: ColorManager.white,
@@ -37,6 +38,7 @@ class ThemeManager {
           color: ColorManager.black,
           fontWeight: FontWeightManager.semiBold,
           fontSize: FontSize.s24,
+          overflow: TextOverflow.ellipsis,
         ),
         bodySmall: TextStyle(
           color: ColorManager.black,

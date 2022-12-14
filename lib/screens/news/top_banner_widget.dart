@@ -40,7 +40,7 @@ class _TopBannerWidgetState extends State<TopBannerWidget> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(AppSize.s10),
                     image: DecorationImage(
-                      fit: BoxFit.cover,
+                      fit: BoxFit.fill,
                       image: NetworkImage(image),
                     ),
                   ),
@@ -102,7 +102,7 @@ class _TopBannerWidgetState extends State<TopBannerWidget> {
           ),
         ),
         const SizedBox(
-          height: AppSize.s8,
+          height: AppMargin.m8,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
