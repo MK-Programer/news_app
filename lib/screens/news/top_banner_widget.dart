@@ -4,8 +4,6 @@ import 'package:news_app/resources/color_manager.dart';
 import 'package:news_app/resources/icon_manager.dart';
 import '../../resources/values_manager.dart';
 
-import '../../utils/utils.dart';
-
 class TopBannerWidget extends StatefulWidget {
   const TopBannerWidget({Key? key}) : super(key: key);
 

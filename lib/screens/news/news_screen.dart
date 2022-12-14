@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/resources/color_manager.dart';
-import 'package:news_app/resources/font_manager.dart';
 import 'package:news_app/resources/string_manager.dart';
 import 'package:news_app/resources/values_manager.dart';
 import 'package:news_app/screens/news/latest_news_widget.dart';
