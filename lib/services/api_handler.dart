@@ -1,25 +1,29 @@
 import 'dart:convert';
+import 'dart:io';
 
-// ignore: depend_on_referenced_packages
 import 'package:http/http.dart' as http;
+import 'package:news_app/resources/string_manager.dart';
 
 class APIHandler {
-  static Future<dynamic> getEgyptData() async {
+  //  Get all egypt data from internet
+  //  Get all (bbc-news, the-next-web) data from internet
+  static Future<dynamic> getData({required String url}) async {
     try {
-      var response = await http.get(
-        Uri.parse(
-          'https://newsapi.org/v2/top-headlines?country=eg&apiKey=f3d3b7b7f9374af9a9aa34b13704ad6a',
-        ),
-      );
+      http.Response response = await http.get(Uri.parse(url));
       var data = jsonDecode(response.body);
-      print(response.statusCode);
-      if (response.statusCode != 200) {
-        throw (data['code']);
+      if (response.statusCode == 200) {
+        return data;
+      } else {
+        throw data['message'];
       }
-      print(data);
-      return data;
-    } catch (error) {
-      throw error.toString();
+    } on SocketException {
+      // Internet connection error
+      throw AppString.checkInternetConnection;
+    } on FormatException {
+      // Error from the backend
+      throw AppString.formatException;
+    } catch (exception) {
+      throw exception.toString();
     }
   }
 }

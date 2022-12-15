@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../models/articles_model.dart';
 import '../../resources/color_manager.dart';
 import '../../resources/font_manager.dart';
 import '../../resources/values_manager.dart';
@@ -11,6 +13,7 @@ class LatestNews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = Utils(context).getScreenSize;
+    final articlesModel = Provider.of<ArticlesModel>(context);
     return Padding(
       padding: const EdgeInsets.all(AppPadding.p8),
       child: SizedBox(
@@ -34,8 +37,8 @@ class LatestNews extends StatelessWidget {
                 width: size.width * AppSize.s0_35,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(AppSize.s12),
-                  image: const DecorationImage(
-                    image: NetworkImage('https://dummyimage.com/16:9x1080/'),
+                  image: DecorationImage(
+                    image: NetworkImage('${articlesModel.urlToImage}'),
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -55,7 +58,7 @@ class LatestNews extends StatelessWidget {
                       child: InkWell(
                         onTap: () {},
                         child: Text(
-                          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                          "${articlesModel.title}",
                           style: Theme.of(context).textTheme.headlineMedium,
                           maxLines: AppSize.s2.toInt(),
                         ),
@@ -63,7 +66,7 @@ class LatestNews extends StatelessWidget {
                     ),
                     const Spacer(),
                     Text(
-                      "2022-12-13T21:25:00Z",
+                      "${articlesModel.publishedAt}",
                       style: Theme.of(context)
                           .textTheme
                           .headlineMedium!

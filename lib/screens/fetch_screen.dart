@@ -21,7 +21,8 @@ class _FetchScreenState extends State<FetchScreen> {
       () async {
         try {
           setState(() => _isLoading = true);
-          await getEgyptianData();
+          await getEgyptData();
+          await getCombinedData();
           setState(() => _isLoading = false);
           // ignore: use_build_context_synchronously
           Navigator.pushNamedAndRemoveUntil(
@@ -34,7 +35,7 @@ class _FetchScreenState extends State<FetchScreen> {
         } catch (error) {
           setState(() {
             _isLoading = false;
-            this.errorText = error.toString();
+            errorText = error.toString();
           });
         }
       },
@@ -42,8 +43,13 @@ class _FetchScreenState extends State<FetchScreen> {
     super.initState();
   }
 
-  Future<void> getEgyptianData() async {
+  Future<void> getEgyptData() async {
     await Provider.of<ArticlesProvider>(context, listen: false).getEgyptData();
+  }
+
+  Future<void> getCombinedData() async {
+    await Provider.of<ArticlesProvider>(context, listen: false)
+        .getCombinedData();
   }
 
   @override

@@ -1,4 +1,5 @@
 import 'package:card_swiper/card_swiper.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/providers/articles_provider.dart';
@@ -22,8 +23,10 @@ class _NewsScreenState extends State<NewsScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = Utils(context).getScreenSize;
-    final newsProvider = Provider.of<ArticlesProvider>(context);
-    final newsList = newsProvider.getNews;
+    final articlesProvider = Provider.of<ArticlesProvider>(context);
+    final egyptArticlesList = articlesProvider.getEgyptArticles;
+
+    final combinedArticlesList = articlesProvider.getCombinedArticles;
     return ListView(
       children: [
         const SizedBox(
@@ -31,27 +34,38 @@ class _NewsScreenState extends State<NewsScreen> {
         ),
         Padding(
           padding: const EdgeInsets.all(AppPadding.p8),
-          child: SizedBox(
-            height: 250,
-            child: Swiper(
-              onIndexChanged: (index) {
+          child: CarouselSlider.builder(
+            itemCount:
+                egyptArticlesList.length >= 4 ? 4 : egyptArticlesList.length,
+            itemBuilder:
+                (BuildContext context, int itemIndex, int pageViewIndex) =>
+                    ChangeNotifierProvider.value(
+              value: egyptArticlesList[itemIndex],
+              child: const TopBannerWidget(),
+            ),
+            options: CarouselOptions(
+              onPageChanged: (index, reason) {
                 setState(() {
                   this.index = index.toDouble();
                 });
               },
-              itemCount: newsList.length >= 4 ? 4 : newsList.length,
-              itemBuilder: (context, index) {
-                return ChangeNotifierProvider.value(
-                  value: newsList[index],
-                  child: const TopBannerWidget(),
-                );
-              },
-              autoplay: true,
+              height: AppSize.s200,
+              aspectRatio: AppSize.s16 / AppSize.s9,
+              viewportFraction: AppSize.s0_8,
+              enableInfiniteScroll: true,
+              reverse: false,
+              autoPlay: true,
+              autoPlayInterval: Duration(seconds: AppSize.s3.toInt()),
+              autoPlayAnimationDuration: const Duration(milliseconds: 800),
+              autoPlayCurve: Curves.fastOutSlowIn,
+              enlargeCenterPage: true,
+              scrollDirection: Axis.horizontal,
             ),
           ),
         ),
         DotsIndicator(
-          dotsCount: newsList.length >= 4 ? 4 : newsList.length,
+          dotsCount:
+              egyptArticlesList.length >= 4 ? 4 : egyptArticlesList.length,
           position: index,
           decorator: DotsDecorator(
             color: ColorManager.grey,
@@ -71,9 +85,12 @@ class _NewsScreenState extends State<NewsScreen> {
         ListView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
-          itemCount: 4,
+          itemCount: combinedArticlesList.length,
           itemBuilder: (context, index) {
-            return const LatestNews();
+            return ChangeNotifierProvider.value(
+              value: combinedArticlesList[index],
+              child: const LatestNews(),
+            );
           },
         )
       ],

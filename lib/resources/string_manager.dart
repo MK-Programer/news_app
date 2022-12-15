@@ -6,4 +6,6 @@ class AppString {
   static String settings = 'Settings';
   static String latestNews = 'Latest News';
   static String emptyString = '';
+  static String checkInternetConnection = 'Check your internet connection';
+  static String formatException = 'Problem retrieving data contact your admin';
 }
