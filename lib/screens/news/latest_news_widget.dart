@@ -29,22 +29,20 @@ class LatestNews extends StatelessWidget {
             Positioned(
               top: AppSize.s0,
               left: AppSize.s5,
-              child: Card(
-                elevation: AppSize.s2,
-                child: Container(
-                  height: AppSize.s180,
-                  width: size.width * AppSize.s0_35,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage('https://dummyimage.com/16:9x1080/'),
-                      fit: BoxFit.fill,
-                    ),
+              child: Container(
+                height: AppSize.s180,
+                width: size.width * AppSize.s0_35,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(AppSize.s12),
+                  image: const DecorationImage(
+                    image: NetworkImage('https://dummyimage.com/16:9x1080/'),
+                    fit: BoxFit.fill,
                   ),
                 ),
               ),
             ),
             Positioned(
-              top: AppSize.s45,
+              top: AppSize.s40,
               left: size.width * AppSize.s0_4,
               child: SizedBox(
                 height: AppSize.s140,
@@ -55,9 +53,7 @@ class LatestNews extends StatelessWidget {
                     SizedBox(
                       width: size.width * AppSize.s0_6,
                       child: InkWell(
-                        onTap: () {
-                          print("A New is pressed");
-                        },
+                        onTap: () {},
                         child: Text(
                           "الرابعة في كأس العالم 2022.. ميسي رجل مباراة الأرجنتين وكرواتيا - FilGoal.com",
                           style: Theme.of(context).textTheme.headlineMedium,

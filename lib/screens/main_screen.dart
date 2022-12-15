@@ -22,19 +22,19 @@ class _MainScreenState extends State<MainScreen> {
   final List<Map<String, dynamic>> _pages = [
     {
       'title': AppString.news,
-      'page': NewsScreen(),
+      'page': const NewsScreen(),
     },
     {
       'title': AppString.search,
-      'page': SearchScreen(),
+      'page': const SearchScreen(),
     },
     {
       'title': AppString.bookmark,
-      'page': BookMarkScreen(),
+      'page': const BookMarkScreen(),
     },
     {
       'title': AppString.settings,
-      'page': SettingsScreen(),
+      'page': const SettingsScreen(),
     },
   ];
 

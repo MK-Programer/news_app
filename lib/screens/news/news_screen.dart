@@ -3,7 +3,6 @@ import 'package:news_app/resources/string_manager.dart';
 import 'package:news_app/resources/values_manager.dart';
 import 'package:news_app/screens/news/latest_news_widget.dart';
 import 'package:news_app/utils/utils.dart';
-
 import 'top_banner_widget.dart';
 
 class NewsScreen extends StatelessWidget {
