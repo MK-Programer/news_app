@@ -16,6 +16,17 @@ class ArticlesProvider with ChangeNotifier {
     return _combinedArticlesList;
   }
 
+  ArticlesModel getEgyptArticleById({required int id}) {
+    // var articleResult;
+    // for (int i = 0; i < _egyptArticlesList.length; i++) {
+    //   if (_egyptArticlesList[i].source!.id == id) {
+    //     articleResult = _egyptArticlesList[i];
+    //   }
+    // }
+    // return articleResult;
+    return _egyptArticlesList[id];
+  }
+
   // Get egypt data from api, convert json to object and add it to the list
   Future<void> getEgyptData() async {
     var data = await APIHandler.getData(url: APIConst.EGYPT_URL);

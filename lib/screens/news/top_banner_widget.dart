@@ -4,10 +4,14 @@ import 'package:news_app/resources/color_manager.dart';
 import 'package:news_app/resources/icon_manager.dart';
 import 'package:provider/provider.dart';
 import '../../models/articles_model.dart';
+import '../../providers/articles_provider.dart';
+import '../../resources/route_manager.dart';
 import '../../resources/values_manager.dart';
 
+// ignore: must_be_immutable
 class TopBannerWidget extends StatefulWidget {
-  const TopBannerWidget({Key? key}) : super(key: key);
+  int index;
+  TopBannerWidget({Key? key, required this.index}) : super(key: key);
 
   @override
   State<TopBannerWidget> createState() => _TopBannerWidgetState();
@@ -24,7 +28,13 @@ class _TopBannerWidgetState extends State<TopBannerWidget> {
       children: [
         Expanded(
           child: InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                Routes.newsDetailsRoute,
+                arguments: widget.index,
+              );
+            },
             child: Container(
               width: double.infinity,
               decoration: BoxDecoration(

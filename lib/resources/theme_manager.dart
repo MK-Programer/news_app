@@ -28,6 +28,7 @@ class ThemeManager {
           color: ColorManager.white,
           fontWeight: FontWeightManager.normal,
           fontSize: FontSize.s16,
+          overflow: TextOverflow.ellipsis,
         ),
         headlineSmall: TextStyle(
           color: ColorManager.black,

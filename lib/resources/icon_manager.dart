@@ -6,4 +6,6 @@ class IconManager {
   static IconData bookmark = Icons.bookmark;
   static IconData bookmarkOutlined = Icons.bookmark_outline;
   static IconData settings = Icons.settings;
+  static IconData message = Icons.message;
+  static IconData eye = Icons.remove_red_eye;
 }

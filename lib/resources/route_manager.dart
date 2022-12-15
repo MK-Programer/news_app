@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/resources/string_manager.dart';
 import 'package:news_app/screens/fetch_screen.dart';
+import '../inner_screens/news_details_screen.dart';
 import '../screens/main_screen.dart';
 
 class Routes {
@@ -21,6 +22,12 @@ class RouteGenerator {
         return MaterialPageRoute(
           builder: (_) => const MainScreen(),
         );
+      case Routes.newsDetailsRoute:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const NewsDetailsScreen(),
+        );
+
       default:
         return unDefinedRoute();
     }

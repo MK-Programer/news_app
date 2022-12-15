@@ -41,7 +41,9 @@ class _NewsScreenState extends State<NewsScreen> {
                 (BuildContext context, int itemIndex, int pageViewIndex) =>
                     ChangeNotifierProvider.value(
               value: egyptArticlesList[itemIndex],
-              child: const TopBannerWidget(),
+              child: TopBannerWidget(
+                index: itemIndex,
+              ),
             ),
             options: CarouselOptions(
               onPageChanged: (index, reason) {

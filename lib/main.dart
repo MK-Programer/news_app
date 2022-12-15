@@ -4,6 +4,7 @@ import 'package:news_app/resources/route_manager.dart';
 import 'package:news_app/resources/theme_manager.dart';
 import 'package:provider/provider.dart';
 
+import 'inner_screens/news_details_screen.dart';
 import 'screens/fetch_screen.dart';
 
 void main() {
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         title: 'NEWS APP',
         theme: ThemeManager.themeData(),
         // home: const FetchScreen(),
+        // home: NewsDetailsScreen(),
         initialRoute: Routes.fetchRoute,
         onGenerateRoute: RouteGenerator.getRoute,
       ),
