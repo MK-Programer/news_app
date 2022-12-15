@@ -6,23 +6,20 @@ import 'package:http/http.dart' as http;
 class APIHandler {
   static Future<dynamic> getEgyptData() async {
     try {
-      // var uri = Uri.https(
-      //   APIConsts.BASE_URL,
-      //   '${APIConsts.UNENCODED_PATH}/top-headlines?country=eg&apiKey=f3d3b7b7f9374af9a9aa34b13704ad6a',
-      // );
       var response = await http.get(
         Uri.parse(
           'https://newsapi.org/v2/top-headlines?country=eg&apiKey=f3d3b7b7f9374af9a9aa34b13704ad6a',
         ),
       );
       var data = jsonDecode(response.body);
+      print(response.statusCode);
       if (response.statusCode != 200) {
-        print(data['status']);
+        throw (data['code']);
       }
       print(data);
       return data;
     } catch (error) {
-      throw '';
+      throw error.toString();
     }
   }
 }

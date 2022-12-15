@@ -43,7 +43,7 @@ class _NewsScreenState extends State<NewsScreen> {
               itemBuilder: (context, index) {
                 return ChangeNotifierProvider.value(
                   value: newsList[index],
-                  child: TopBannerWidget(),
+                  child: const TopBannerWidget(),
                 );
               },
               autoplay: true,

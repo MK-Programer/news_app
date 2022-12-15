@@ -32,7 +32,10 @@ class _FetchScreenState extends State<FetchScreen> {
             ),
           );
         } catch (error) {
-          print(error.toString());
+          setState(() {
+            _isLoading = false;
+            this.errorText = error.toString();
+          });
         }
       },
     );

@@ -55,7 +55,7 @@ class Articles with ChangeNotifier {
     title = json['title'];
     description = json['description'];
     url = json['url'];
-    urlToImage = json['urlToImage'];
+    urlToImage = json['urlToImage'] ?? 'https://dummyimage.com/16:9x1080/';
     publishedAt = json['publishedAt'];
     content = json['content'];
   }

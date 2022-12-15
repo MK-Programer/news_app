@@ -55,7 +55,7 @@ class LatestNews extends StatelessWidget {
                       child: InkWell(
                         onTap: () {},
                         child: Text(
-                          "الرابعة في كأس العالم 2022.. ميسي رجل مباراة الأرجنتين وكرواتيا - FilGoal.com",
+                          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                           style: Theme.of(context).textTheme.headlineMedium,
                           maxLines: AppSize.s2.toInt(),
                         ),
