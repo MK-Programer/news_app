@@ -5,4 +5,5 @@ class AppString {
   static String bookmark = 'Bookmark';
   static String settings = 'Settings';
   static String latestNews = 'Latest News';
+  static String emptyString = '';
 }

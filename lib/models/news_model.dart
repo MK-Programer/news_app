@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 class NewsModel {
   String? status;
   int? totalResults;
@@ -27,7 +29,7 @@ class NewsModel {
   }
 }
 
-class Articles {
+class Articles with ChangeNotifier {
   Source? source;
   String? author;
   String? title;

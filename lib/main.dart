@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/providers/news_provider.dart';
+import 'package:news_app/providers/articles_provider.dart';
 import 'package:news_app/resources/route_manager.dart';
 import 'package:news_app/resources/theme_manager.dart';
 import 'package:provider/provider.dart';
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (_) {
-            return NewsProvider();
+            return ArticlesProvider();
           },
         ),
       ],

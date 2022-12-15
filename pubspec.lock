@@ -36,6 +36,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.1"
+  card_swiper:
+    dependency: "direct main"
+    description:
+      name: card_swiper
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.4"
   carousel_slider:
     dependency: "direct main"
     description:
@@ -85,6 +92,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.5"
+  dots_indicator:
+    dependency: "direct main"
+    description:
+      name: dots_indicator
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.0"
   fake_async:
     dependency: transitive
     description:
