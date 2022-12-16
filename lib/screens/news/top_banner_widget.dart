@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/models/news_model.dart';
+import 'package:news_app/providers/bookmark_provider.dart';
 import 'package:news_app/resources/color_manager.dart';
 import 'package:news_app/resources/icon_manager.dart';
 import 'package:provider/provider.dart';
 import '../../models/articles_model.dart';
-import '../../providers/articles_provider.dart';
 import '../../resources/route_manager.dart';
 import '../../resources/values_manager.dart';
 
@@ -18,11 +17,12 @@ class TopBannerWidget extends StatefulWidget {
 }
 
 class _TopBannerWidgetState extends State<TopBannerWidget> {
-  bool isBookMarked = true;
-
   @override
   Widget build(BuildContext context) {
     final articlesModel = Provider.of<ArticlesModel>(context);
+    final bookmarkProvider = Provider.of<BookMarkProvider>(context);
+    bool isBookMarked =
+        bookmarkProvider.getBookmarkList.containsKey('${widget.index}A');
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -32,7 +32,7 @@ class _TopBannerWidgetState extends State<TopBannerWidget> {
               Navigator.pushNamed(
                 context,
                 Routes.newsDetailsRoute,
-                arguments: widget.index,
+                arguments: {'index': widget.index, 'type': 'A'},
               );
             },
             child: Container(
@@ -65,7 +65,15 @@ class _TopBannerWidgetState extends State<TopBannerWidget> {
                           InkWell(
                             onTap: () {
                               setState(() {
-                                isBookMarked = !isBookMarked;
+                                if (!isBookMarked) {
+                                  bookmarkProvider.addArticleToBookmark(
+                                      id: widget.index, type: 'A');
+                                  isBookMarked = true;
+                                } else {
+                                  bookmarkProvider.removeArticleFromBookMark(
+                                      id: widget.index, type: 'A');
+                                  isBookMarked = false;
+                                }
                               });
                             },
                             child: Icon(

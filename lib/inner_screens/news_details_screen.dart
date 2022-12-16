@@ -16,9 +16,10 @@ class NewsDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = Utils(context).getScreenSize;
     final articleProvider = Provider.of<ArticlesProvider>(context);
-    final articleId = ModalRoute.of(context)!.settings.arguments as int;
-    print(articleId);
-    final articleData = articleProvider.getEgyptArticleById(id: articleId);
+    final args = ModalRoute.of(context)!.settings.arguments as Map;
+
+    final articleData =
+        articleProvider.getArticleById(id: args['index'], type: args['type']);
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(

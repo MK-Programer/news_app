@@ -8,4 +8,6 @@ class AppString {
   static String emptyString = '';
   static String checkInternetConnection = 'Check your internet connection';
   static String formatException = 'Problem retrieving data contact your admin';
+  static String search2 = 'Search...';
+  static String empty = 'Empty :)';
 }

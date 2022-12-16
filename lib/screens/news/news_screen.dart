@@ -1,4 +1,3 @@
-import 'package:card_swiper/card_swiper.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
@@ -91,7 +90,9 @@ class _NewsScreenState extends State<NewsScreen> {
           itemBuilder: (context, index) {
             return ChangeNotifierProvider.value(
               value: combinedArticlesList[index],
-              child: const LatestNews(),
+              child: LatestNews(
+                index: index,
+              ),
             );
           },
         )

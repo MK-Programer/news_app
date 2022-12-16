@@ -4,12 +4,20 @@ import 'package:provider/provider.dart';
 import '../../models/articles_model.dart';
 import '../../resources/color_manager.dart';
 import '../../resources/font_manager.dart';
+import '../../resources/route_manager.dart';
 import '../../resources/values_manager.dart';
 import '../../utils/utils.dart';
 
-class LatestNews extends StatelessWidget {
-  const LatestNews({Key? key}) : super(key: key);
+// ignore: must_be_immutable
+class LatestNews extends StatefulWidget {
+  int index;
+  LatestNews({Key? key, required this.index}) : super(key: key);
 
+  @override
+  State<LatestNews> createState() => _LatestNewsState();
+}
+
+class _LatestNewsState extends State<LatestNews> {
   @override
   Widget build(BuildContext context) {
     Size size = Utils(context).getScreenSize;
@@ -56,7 +64,13 @@ class LatestNews extends StatelessWidget {
                     SizedBox(
                       width: size.width * AppSize.s0_6,
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            Routes.newsDetailsRoute,
+                            arguments: {'index': widget.index, 'type': 'B'},
+                          );
+                        },
                         child: Text(
                           "${articlesModel.title}",
                           style: Theme.of(context).textTheme.headlineMedium,

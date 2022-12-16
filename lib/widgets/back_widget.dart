@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:news_app/resources/color_manager.dart';
 import 'package:news_app/resources/values_manager.dart';
 
-import '../utils/utils.dart';
-
 class BackWidget extends StatelessWidget {
   final Color? colorPassed;
   final Function? fct;
@@ -26,7 +24,7 @@ class BackWidget extends StatelessWidget {
       child: Icon(
         Icons.arrow_back,
         color: ColorManager.black,
-        size: 24.0,
+        size: AppSize.s24,
       ),
     );
   }

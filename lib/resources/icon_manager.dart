@@ -8,4 +8,5 @@ class IconManager {
   static IconData settings = Icons.settings;
   static IconData message = Icons.message;
   static IconData eye = Icons.remove_red_eye;
+  static IconData close = Icons.close;
 }

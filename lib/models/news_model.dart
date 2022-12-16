@@ -1,5 +1,3 @@
-import 'package:flutter/cupertino.dart';
-
 import 'articles_model.dart';
 
 class NewsModel {

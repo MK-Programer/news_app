@@ -16,15 +16,11 @@ class ArticlesProvider with ChangeNotifier {
     return _combinedArticlesList;
   }
 
-  ArticlesModel getEgyptArticleById({required int id}) {
-    // var articleResult;
-    // for (int i = 0; i < _egyptArticlesList.length; i++) {
-    //   if (_egyptArticlesList[i].source!.id == id) {
-    //     articleResult = _egyptArticlesList[i];
-    //   }
-    // }
-    // return articleResult;
-    return _egyptArticlesList[id];
+  ArticlesModel getArticleById({required int id, required String type}) {
+    if (type == "A") {
+      return _egyptArticlesList[id];
+    }
+    return _combinedArticlesList[id];
   }
 
   // Get egypt data from api, convert json to object and add it to the list
