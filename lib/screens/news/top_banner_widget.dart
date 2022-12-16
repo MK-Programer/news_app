@@ -64,17 +64,15 @@ class _TopBannerWidgetState extends State<TopBannerWidget> {
                           ),
                           InkWell(
                             onTap: () {
-                              setState(() {
-                                if (!isBookMarked) {
-                                  bookmarkProvider.addArticleToBookmark(
-                                      id: widget.index, type: 'A');
-                                  isBookMarked = true;
-                                } else {
-                                  bookmarkProvider.removeArticleFromBookMark(
-                                      id: widget.index, type: 'A');
-                                  isBookMarked = false;
-                                }
-                              });
+                              if (!isBookMarked) {
+                                bookmarkProvider.addArticleToBookmark(
+                                    id: widget.index, type: 'A');
+                                isBookMarked = true;
+                              } else {
+                                bookmarkProvider.removeArticleFromBookMark(
+                                    id: widget.index, type: 'A');
+                                isBookMarked = false;
+                              }
                             },
                             child: Icon(
                               isBookMarked

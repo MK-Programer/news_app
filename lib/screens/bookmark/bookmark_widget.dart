@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/models/bookmark_model.dart';
+import 'package:news_app/providers/bookmark_provider.dart';
 import 'package:news_app/resources/font_manager.dart';
+import 'package:news_app/resources/icon_manager.dart';
 import 'package:news_app/resources/values_manager.dart';
 import 'package:news_app/utils/utils.dart';
 import 'package:provider/provider.dart';
@@ -9,13 +11,19 @@ import '../../providers/articles_provider.dart';
 import '../../resources/color_manager.dart';
 import '../../resources/route_manager.dart';
 
-class BookmarkWidget extends StatelessWidget {
+class BookmarkWidget extends StatefulWidget {
   const BookmarkWidget({Key? key}) : super(key: key);
 
+  @override
+  State<BookmarkWidget> createState() => _BookmarkWidgetState();
+}
+
+class _BookmarkWidgetState extends State<BookmarkWidget> {
   @override
   Widget build(BuildContext context) {
     final bookmarkModel = Provider.of<BookMarkModel>(context);
     final articlesProvider = Provider.of<ArticlesProvider>(context);
+    final bookmarkProvider = Provider.of<BookMarkProvider>(context);
     final item = articlesProvider.getArticleById(
         id: bookmarkModel.id, type: bookmarkModel.type);
 
@@ -55,6 +63,19 @@ class BookmarkWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: InkWell(
+                        onTap: () {
+                          bookmarkProvider.removeArticleFromBookMark(
+                              id: bookmarkModel.id, type: bookmarkModel.type);
+                        },
+                        child: Icon(
+                          IconManager.bookmark,
+                          color: ColorManager.orange,
+                        ),
+                      ),
+                    ),
                     Text(
                       '${item.title}',
                       style:
