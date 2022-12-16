@@ -98,9 +98,6 @@ class _TopBannerWidgetState extends State<TopBannerWidget> {
             ),
           ),
         ),
-        const SizedBox(
-          height: AppMargin.m8,
-        ),
       ],
     );
   }
