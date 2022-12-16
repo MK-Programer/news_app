@@ -34,6 +34,7 @@ class ThemeManager {
           color: ColorManager.black,
           fontWeight: FontWeightManager.bold,
           fontSize: FontSize.s20,
+          overflow: TextOverflow.ellipsis,
         ),
         headlineMedium: TextStyle(
           color: ColorManager.black,

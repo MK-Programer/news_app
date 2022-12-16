@@ -114,6 +114,7 @@ class NewsDetailsScreen extends StatelessWidget {
                         child: Text(
                           '${articleData.title}',
                           style: Theme.of(context).textTheme.headlineSmall,
+                          maxLines: 10,
                         ),
                       ),
                     ],

@@ -65,42 +65,52 @@ class _BookmarkWidgetState extends State<BookmarkWidget> {
                   children: [
                     Align(
                       alignment: Alignment.centerRight,
-                      child: InkWell(
-                        onTap: () {
-                          bookmarkProvider.removeArticleFromBookMark(
-                              id: bookmarkModel.id, type: bookmarkModel.type);
-                        },
-                        child: Icon(
-                          IconManager.bookmark,
-                          color: ColorManager.orange,
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 10.0, top: 10.0),
+                        child: InkWell(
+                          onTap: () {
+                            bookmarkProvider.removeArticleFromBookMark(
+                                id: bookmarkModel.id, type: bookmarkModel.type);
+                          },
+                          child: Icon(
+                            IconManager.bookmark,
+                            color: ColorManager.orange,
+                          ),
                         ),
                       ),
                     ),
-                    Text(
-                      '${item.title}',
-                      style:
-                          Theme.of(context).textTheme.headlineSmall!.copyWith(
-                                fontSize: FontSize.s16,
-                              ),
+                    Flexible(
+                      child: Text(
+                        '${item.title}',
+                        style:
+                            Theme.of(context).textTheme.headlineSmall!.copyWith(
+                                  fontSize: FontSize.s16,
+                                ),
+                        maxLines: 4,
+                      ),
                     ),
                     const SizedBox(
                       height: AppMargin.m5,
                     ),
-                    Text(
-                      '${item.author}',
-                      style: Theme.of(context).textTheme.labelSmall!.copyWith(
-                            color: ColorManager.black,
-                          ),
+                    Flexible(
+                      child: Text(
+                        '${item.author}',
+                        style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                              color: ColorManager.black,
+                            ),
+                      ),
                     ),
                     const SizedBox(
                       height: AppMargin.m5,
                     ),
-                    Text(
-                      '${item.publishedAt}',
-                      style: Theme.of(context).textTheme.labelSmall!.copyWith(
-                            color: ColorManager.black,
-                            fontSize: FontSize.s12,
-                          ),
+                    Flexible(
+                      child: Text(
+                        '${item.publishedAt}',
+                        style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                              color: ColorManager.black,
+                              fontSize: FontSize.s12,
+                            ),
+                      ),
                     ),
                   ],
                 ),
